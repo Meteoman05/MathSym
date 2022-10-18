@@ -60,7 +60,7 @@ class EXPR:
 
 	def _svg2png(self):
 		log.disable(level=log.WARN)
-		dr = svg2rlg(self.filename)
+		dr = svg2rlg(f'{self.filename}.png')
 		renderPM.drawToFile(dr, f'{self.filename}.png')
 
 
