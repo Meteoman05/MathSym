@@ -1,4 +1,3 @@
-#Aboba_zaglotus_damirius
 import requests as rq
 import logging as log
 from svglib.svglib import svg2rlg
@@ -66,7 +65,6 @@ class EXPR:
 
 
 	def get_png_from_expr(self):
-                # next time
-                pass
+                with open(f'{self.filename}.png', 'rb') as file: return file
 
 # EXPR('\int%20x^{x}\,%20dx')
