@@ -67,3 +67,5 @@ class EXPR:
 	def get_png_from_expr(self):
                 # next time
                 pass
+
+# EXPR('\int%20x^{x}\,%20dx')
