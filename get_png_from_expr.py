@@ -1,3 +1,4 @@
+#Aboba_zaglotus_damirius
 import requests as rq
 import logging as log
 from svglib.svglib import svg2rlg
