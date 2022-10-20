@@ -31,7 +31,6 @@ class EXPR:
 		for param in params:
 	
 			start = text.find(param) + len(param)
-			print(start)
 	
 			if text[start] == '"':
 	
