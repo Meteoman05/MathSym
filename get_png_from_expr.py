@@ -5,10 +5,12 @@ from reportlab.graphics import renderPM
 
 
 class EXPR:
-	count = 0
+	count = -1
 	
-	def __init__(self, expr):
+	def __init__(self, expr, K=100):
 		self.expr = expr
+		self.K =K
+		self.__class__.count += 1
 	
 	def _get_svg(self):
 		self.filename = f'{self.__class__.count}'.zfill(6)
@@ -21,7 +23,7 @@ class EXPR:
 	
 
 
-	def _fix_svg(self, K=10):
+	def _fix_svg(self):
 		params = ['width=', 'height=']
 		with open(f'{self.filename}.svg') as file:
 			text = file.read()
@@ -47,7 +49,7 @@ class EXPR:
 					val[1] += text[i]
 	
 	
-				new_val = f'"{float(val[0])*K}{val[1]}"'
+				new_val = f'"{float(val[0])*self.K}{val[1]}"'
 	
 				text = text[:start] + new_val + text[end:]
 	
@@ -65,6 +67,9 @@ class EXPR:
 
 
 	def get_png_from_expr(self):
-                with open(f'{self.filename}.png', 'rb') as file: return file
+		self._get_svg()
+		self._fix_svg()
+		self._svg2png()
+                return open(f'{self.filename}.png', 'rb')
 
 # EXPR('\int%20x^{x}\,%20dx')
