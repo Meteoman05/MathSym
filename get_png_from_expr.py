@@ -11,6 +11,9 @@ class EXPR:
 		self.expr = expr
 		self.K = K
 		self.__class__.count += 1
+		self._get_svg()
+		self._fix_svg()
+		self._svg2png()
 
 	def _get_svg(self):
 		self.filename = f'{self.__class__.count}'.zfill(6)
@@ -66,9 +69,6 @@ class EXPR:
 
 
 	def file(self):
-		self._get_svg()
-		self._fix_svg()
-		self._svg2png()
 		return open(f'{self.filename}.pdf', 'rb')
 
 # EXPR('\int%20x^{x}\,%20dx')
